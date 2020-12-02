@@ -6,8 +6,137 @@
   --color-yellow: #fbbe28;
   --color-pink: #fd7f84;
   --color-light-grey: #dfdfdf;
+
+  /* size */
+  --size-button: 60px;
+  --font-size: 18px;
+  --base-space: 8px;
+  --size-border: 4px;
+  --size-thumbnail: 50px;
+
+  /* animation */
+  --animation-duration: 300ms;
+}
+/* border vs outline : border가 outline보다 안에 있으며, 기능은 비슷하다 mdn 참조 */
+
+body {
+  height: 100vh;
+  /* viewportheight = 사용자의 화면의 100%를 뜻함. (바디의 크기를 화면의 100%로 채움)*/
+  background-color: var(--color-black);
+  /* 배경색을 변수--color-black즉 #3f454d로 바꿈. (바디의 배경색을 검은색으로) */
+  display: flex;
+  /* 디스플레이를 flex로 바꿈. (body내의 내용들이 한 줄에 나오게 함.) */
+  flex-direction: column;
+  /* flex디스플레이의 방향을 column으로 설정함. (가로로 정렬되어있던 내용이 세로로 정렬됨.) */
+  justify-content: center;
+  /* body의 내용을 (가로기준) 중앙으로 정렬. (왼쪽에서부터 시작되었던 콘텐츠들이 중앙으로 정렬됨.) */
+  align-items: center;
+  /* body의 내용을 (세로기준) 중앙으로 정렬. (위쪽부터 시작되었던 콘텐츠들이 중앙으로 정렬됨.) */
 }
 
-* {
-  box-sizing: border-box;
+.logo {
+  cursor: pointer;
+  /* 클래스의 커서를 포인터로 바꿈. (로고클래스에 마우스 커서가 간다면 커서를 포인터로 병경함.)*/
+  transition: transform var(--animation-duration) ease;
+  /* 클래스내의 변경점이 변수(300ms)에 걸쳐 변하게하고 ease하게 변경시킨다. */
+}
+
+.btn {
+  background-color: transparent;
+  /* 클래스의 배경색을 투명색으로 바꿈. (btn클래스 전체의 배경색을 투명으로 바꾼다.) */
+  border: none;
+  /* 클래스의 테두리를 none으로 바꿈. (btn클래스 테두리를 없엔다.) */
+  outline: none;
+  /* 클래스의 아웃라인을 none으로 바꿈. (btn클래스의 아웃라인을 없엔다.) */
+  cursor: pointer;
+  /* 클래스의 커서를 포인터로 바꿈. (btn클래스에 마우스 커서가 간다면 커서를 포인터로 병경함.)*/
+  transition: transform var(--animation-duration) ease;
+  /* 클래스내의 변경점이 변수(300ms)에 걸쳐 변하게하고 ease하게 변경시킨다. */
+  margin-right: var(--base-space);
+  /* 클래스의 오른쪽 마진을 변수로 지정한다. */
+}
+
+.btn:hover,
+.logo:hover {
+  transform: scale(1.1);
+  /* logo클래스,btn클래스:hover시 크기를 1.1배함. 
+  (로고클래스에 마우스가 올라가면(hover) 로고의 크기 1.1배.) */
+}
+
+.buttons {
+  display: flex;
+  /* 디스플레이를 flex로 바꿈. (buttons내의 내용들이 한 줄에 나오게 함.) */
+  align-items: center;
+  /* buttons클래스의 내용을 (세로기준) 중앙으로 정렬. (위부터 시작되었던 콘텐츠들이 중앙으로 정렬됨.) */
+}
+
+.imgBtn {
+  width: var(--size-button);
+  /* 클래스의 width(가로크기)를 변수로 지정한다. */
+  height: var(--size-button);
+  /* 클래스의 height(세로크기)를 변수로 지정한다. */
+}
+
+.colorBtn {
+  font-size: var(--font-size);
+  /* 클래스의 사이즈를 변수로 지정한다. */
+  padding: calc(var(--base-space) * 2);
+  /* 클래스의 패딩을 변수(8px) * 2로 지정한다. */
+  border-radius: var(--size-border);
+  /* 클래스의 border을 변수로 지정한다. */
+}
+
+.blue {
+  background-color: var(--color-blue);
+  /* 클래스의 배경색을 변수(blue)로 지정한다. */
+}
+
+.yellow {
+  background-color: var(--color-yellow);
+  /* 클래스의 배경색을 변수(yellow)로 지정한다. */
+}
+
+.pink {
+  background-color: var(--color-pink);
+  /* 클래스의 배경색을 변수(pink)로 지정한다. */
+}
+
+.items {
+  width: 60%;
+  /* 클래스의 width(가로크기)를 60%로 지정한다. */
+  height: 60%;
+  /* 클래스의 height(세로크기)를 60%로 지정한다. */
+  list-style: none;
+  /* 클래스의 리스트 스타일을 없엔다. (여기선 ul list의 -과 같은 스타일)*/
+  padding-left: 0;
+  /* 클래스의 좌측 패딩을 0으로 지정한다. */
+  overflow-y: scroll;
+  /* items클래스 내에서만 y축으로 스크롤이 되도록 스크롤을 지정함. */
+}
+
+.item {
+  background-color: var(--color-white);
+  /* 클래스의 배경색을 변수(whie)로 지정한다. */
+  display: flex;
+  /* 디스플레이를 flex로 바꿈. (item내의 내용들이 한 줄에 나오게 함.) */
+  align-items: center;
+  /* 클래스의 내용을 (세로기준) 중앙으로 정렬. (위쪽부터 시작되었던 콘텐츠들이 중앙으로 정렬됨.) */
+  padding: var(--base-space);
+  /* 클래스의 padding을 변수로 지정한다. */
+  margin-bottom: var(--base-space);
+  /* 클래스의 밑쪽 마진을 변수로 지정한다. */
+}
+
+.item__thumbnail {
+  width: var(--size-thumbnail);
+  /* 클래스의 width(가로크기)를 변수로 지정한다. */
+  height: var(--size-thumbnail);
+  /* 클래스의 width(가로크기)를 변수로 지정한다. */
+}
+
+.item__description {
+  margin-left: var(--base-space);
+  /* 클래스의 왼쪽 마진을 변수만큼 지정한다. */
+  font-size: var(--font-size);
+  /* 클래스의 폰트 사이즈를 변수로 지정한다. */
 }
